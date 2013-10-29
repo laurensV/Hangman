@@ -1,7 +1,7 @@
 Hangman
 =======
 
-**author:** Laurens Verspeek - 10184465
+**author:** Laurens Verspeek - 10184465<br>
         laurens_verspeek@hotmail.com
 
 **course:** Native App Studios - Univeristy of Amsterdam
