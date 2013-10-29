@@ -8,7 +8,7 @@ Hangman
 
 _Hangman game application in Android for the course Native App Studios_
 
-##Features##
+###Features###
 - placeholders for yet-unguessed letters that make clear the word’s length.
 - displays how many guesses left until you lose
 - displays all letters you already guessed
@@ -18,9 +18,9 @@ _Hangman game application in Android for the course Native App Studios_
 - Changable settings, like the length of words to be guessed and the maximum number of incorrect guesses allowed
 - Maintains a history of high scores that’s displayed anytime a game is won or lost. 
 
-##Technologies##
+###Technologies###
 - Android SDK (java)
 - Canvas with SurfaceView (http://developer.android.com/guide/topics/graphics/2d-graphics.html)
 
-##Mockups##
+###Mockups###
 See _docs/mockups.pdf_ for the mockups
