@@ -18,15 +18,18 @@ Design Document
 - displayLetter(letter)
 - animateHangman()
 - exit()
+
 ###Keyboard
 - getLetter()
 - onTouch()
 - disableLetter(letter)
 - highlightLetter(letter)
 - reset()
+
 ###Settings
 - setMaxMoves(maxMoves)
 - setWordLength(wordLength)
+
 ###Highscore
 - getHighscores()
 - insertHighscore(name, score)
