@@ -127,8 +127,7 @@ _Reasoning: Consistency is easier to read. Plus, less editing is involved if lin
 
 
 
-        class Order
-        {
+        class Order {
             // fields (attributes)
 
             // constructors
@@ -174,8 +173,7 @@ General naming conventions:
 
 Example:
 
-        public class Person
-        {
+        public class Person {
             private String FirstName; // NO! (Start with uppercase)
             private String firstName;  // YES!
 
@@ -201,8 +199,7 @@ So rather than:
 
 
         boolean done = false;
-        do
-        {
+        do {
             ...
         } while (!done)
 
@@ -211,8 +208,7 @@ use:
 
 
         boolean done = false;
-        while (!done)
-        {
+        while (!done) {
            ...
         }
 
