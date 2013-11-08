@@ -1,3 +1,50 @@
+Design Document
+===============
+
+## Classes and methods
+
+###Gameplay
+- newGame()
+- onWin()
+- onLose()
+- openSettings()
+- onGuess()
+- checkWordContains(word, letter) _returns true or false;_
+- getGuess() _returns letter;_
+- getMaxMoves() _returns maxMoves;_
+- pickWord() _returns word;_
+- getMoves() _returns movesDone;_
+- displayWord(word)
+- displayLetter(letter)
+- animateHangman()
+- exit()
+###Keyboard
+- getLetter()
+- onTouch()
+- disableLetter(letter)
+- highlightLetter(letter)
+- reset()
+###Settings
+- setMaxMoves(maxMoves)
+- setWordLength(wordLength)
+###Highscore
+- getHighscores()
+- insertHighscore(name, score)
+- deleteHighscore(id)
+
+
+## Implementation details
+###Hangman gameplay
+A random word is chosen from the xml file with a specific word length. This word will be used throughout the game.
+
+###Animation
+The user will be notified of a wrongly guessed word by animating the progress of the hangman animation. The animation is dependent of the maximum allowed moves.
+
+### Data
+
+- The words will be stored in the xml file. No need to transform this to anotherdatabase, because the data is static.
+- The high scores will be saved in a raw resource. The data will be saved as key-value pairs, mapping the user to the respective score.
+
 # Java Programming Style Guide
 
 ## 1. Formatting
