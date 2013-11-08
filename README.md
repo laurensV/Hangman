@@ -24,4 +24,11 @@ _Hangman is an application for Android based on the classic Hangman game for the
 - Canvas with SurfaceView (http://developer.android.com/guide/topics/graphics/2d-graphics.html)
 
 ###Mockups###
-See _docs/mockups.pdf_ for the mockups
+Main Activity:
+[[File:doc/hangman.png]]
+
+Settings:
+[[File:doc/settings.png]]
+
+Highscores:
+[[File:doc/highscores.png]]
