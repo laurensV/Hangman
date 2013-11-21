@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="words">
+	<item>A</item>
+	<item>AA</item>
+	<item>AAL</item>
+	<item>AALII</item>
+	<item>AAM</item>
+	<item>AANI</item>
+	<item>AARDVARK</item>
+	<item>AARDWOLF</item>
+	<item>AARON</item>
+	<item>AARONIC</item>
+	<item>AARONICAL</item>
+	<item>AARONITE</item>
+	<item>AARONITIC</item>
+	<item>AARU</item>
+	<item>LARENS</item>
+	<item>AB</item>
+	<item>ABA</item>
+	<item>ABABDEH</item>
+</string-array>
+</resources>

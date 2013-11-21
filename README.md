@@ -8,6 +8,14 @@ Hangman
 
 _Hangman is an application for Android based on the classic Hangman game for the course Native App Studios_
 
+###How to get it up and running###
+- Clone the repository: git clone git@github.com:laurensv/hangman.git
+- Get Eclipse and the ADT plugin, see instructions here: http://developer.android.com/sdk/installing/installing-adt.html
+- Open Eclipse (eclipse.exe)
+- New > Project> Android > Android Project from Existing Code
+- Select the hangman app located in the cloned folder in the map 'Hangman'
+- Run the app on your mobile or set up a virtual android device and run it there.
+
 ###Features###
 - placeholders for yet-unguessed letters that make clear the word’s length.
 - displays how many guesses left until you lose
