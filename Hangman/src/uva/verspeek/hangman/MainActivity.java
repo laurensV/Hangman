@@ -184,10 +184,10 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	private void newGuess(String letter) {
 		guessedLetters.add(letter);
-		moves++;
-		TextView movesLeft = (TextView) findViewById(R.id.moves);
-		movesLeft.setText("Moves left: " + (maxMoves - moves));
 		showLetters();
+		TextView movesLeft = (TextView) findViewById(R.id.moves);
+		moves = getScore();
+		movesLeft.setText("Moves left: " + (maxMoves - moves));
 	}
 
 	private void showLetters() {
