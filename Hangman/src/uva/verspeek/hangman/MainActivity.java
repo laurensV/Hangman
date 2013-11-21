@@ -74,6 +74,7 @@ public class MainActivity extends Activity implements OnClickListener {
 				Intent SettingsIntent = new Intent(MainActivity.this,
 						SettingsActivity.class);
 				MainActivity.this.startActivity(SettingsIntent);
+				MainActivity.this.finish();
 			}
 		});
 
@@ -274,7 +275,7 @@ public class MainActivity extends Activity implements OnClickListener {
 				Intent highIntent = new Intent(MainActivity.this,
 						HighScoreActivity.class);
 				MainActivity.this.startActivity(highIntent);
-
+				MainActivity.this.finish();
 				return;
 			}
 		});
@@ -282,14 +283,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		alert.show();
 	}
 	
-	@Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode == KeyEvent.KEYCODE_BACK) {
-        	this.finish();
-            return true;
-        }
-        return false;
-    }
+
 
 	private void lose() {
 		Toast.makeText(getApplicationContext(),
@@ -302,6 +296,7 @@ public class MainActivity extends Activity implements OnClickListener {
 				Intent highIntent = new Intent(MainActivity.this,
 						HighScoreActivity.class);
 				MainActivity.this.startActivity(highIntent);
+				MainActivity.this.finish();
 			}
 		};
 
@@ -371,6 +366,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		case R.id.action_settings:
 			Intent SettingsIntent = new Intent(this, SettingsActivity.class);
 			startActivity(SettingsIntent);
+			finish();
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

@@ -24,6 +24,7 @@ public class SettingsActivity extends PreferenceActivity {
 						MainActivity.class);
 				gameIntent.putExtra("newgame", "newgame");
 				SettingsActivity.this.startActivity(gameIntent);
+				SettingsActivity.this.finish();
 			}
 
 		});
@@ -34,6 +35,7 @@ public class SettingsActivity extends PreferenceActivity {
 				Intent gameIntent = new Intent(SettingsActivity.this,
 						MainActivity.class);
 				SettingsActivity.this.startActivity(gameIntent);
+				SettingsActivity.this.finish();
 			}
 
 		});
@@ -43,6 +45,10 @@ public class SettingsActivity extends PreferenceActivity {
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			Intent gameIntent = new Intent(SettingsActivity.this,
+					MainActivity.class);
+			SettingsActivity.this.startActivity(gameIntent);
+			SettingsActivity.this.finish();
 			return true;
 		}
 		return false;

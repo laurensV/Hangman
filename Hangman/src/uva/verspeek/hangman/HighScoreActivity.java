@@ -47,6 +47,7 @@ public class HighScoreActivity extends Activity {
 						MainActivity.class);
 				gameIntent.putExtra("newgame", "newgame");
 				HighScoreActivity.this.startActivity(gameIntent);
+				HighScoreActivity.this.finish();
 			}
 
 		});
@@ -59,6 +60,7 @@ public class HighScoreActivity extends Activity {
 					MainActivity.class);
 			gameIntent.putExtra("newgame", "newgame");
 			HighScoreActivity.this.startActivity(gameIntent);
+			HighScoreActivity.this.finish();
             return true;
         }
         return false;
