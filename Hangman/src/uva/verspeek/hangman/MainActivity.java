@@ -33,10 +33,13 @@ import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,10 +62,6 @@ public class MainActivity extends Activity implements OnClickListener {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		setContentView(R.layout.activity_main);
-		gamePrefs = getSharedPreferences(GAME_PREFS, 0);
-		guessedLetters = new ArrayList<String>(Arrays.asList(gamePrefs
-				.getString("guessedLetters", "[]").replace("[", "")
-				.replace("]", "").replace(" ", "").split(",")));
 
 		Resources res = getResources();
 		words = res.getStringArray(R.array.words);
@@ -82,16 +81,22 @@ public class MainActivity extends Activity implements OnClickListener {
 		if (newGame != null) {
 			newGame();
 		} else {
+			gamePrefs = getSharedPreferences(GAME_PREFS, 0);
+			guessedLetters = new ArrayList<String>(Arrays.asList(gamePrefs
+					.getString("guessedLetters", "[]").replace("[", "")
+					.replace("]", "").replace(" ", "").split(",")));
 			// get the prefs object.
 			SharedPreferences settings = PreferenceManager
 					.getDefaultSharedPreferences(this);
-			maxMoves = settings.getInt("maxMoves", 10);
-			moves = gamePrefs.getInt("moves", 0);
-
 			wordLength = settings.getInt("wordLength", 9);
 
 			randomWord = gamePrefs.getString("word", getWord(words, wordLength)
 					.toUpperCase());
+			maxMoves = gamePrefs.getInt("moves",
+					settings.getInt("maxMoves", 10));
+			moves = getScore();
+
+
 			TextView movesLeft = (TextView) findViewById(R.id.moves);
 			movesLeft.setText("Moves left: " + (maxMoves - moves));
 			populateButtons();
@@ -143,7 +148,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			for (String eSc : exScores) {
 				String[] parts = eSc.split(". Mistakes: ");
 				scoreStrings
-				.add(new Score(parts[0], Integer.parseInt(parts[1])));
+						.add(new Score(parts[0], Integer.parseInt(parts[1])));
 			}
 			// new score
 			Score newScore = new Score(info, exScore);
@@ -184,10 +189,10 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	private void newGuess(String letter) {
 		guessedLetters.add(letter);
-		showLetters();
-		TextView movesLeft = (TextView) findViewById(R.id.moves);
 		moves = getScore();
+		TextView movesLeft = (TextView) findViewById(R.id.moves);
 		movesLeft.setText("Moves left: " + (maxMoves - moves));
+		showLetters();
 	}
 
 	private void showLetters() {
@@ -252,6 +257,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 
 	private void win() {
+		GridView keyboard = (GridView) findViewById(R.id.grid);
+		keyboard.setOnItemClickListener(null);
+		
 		AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
 		alert.setTitle("You Win");
@@ -265,25 +273,23 @@ public class MainActivity extends Activity implements OnClickListener {
 				maxLength) });
 		alert.setView(name);
 
-		alert.setPositiveButton("Submit Highscore",
+		alert.setPositiveButton("Submit",
 				new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int whichButton) {
-				String value = "" + name.getText();
-				if (value == "")
-					value = "Anonymous";
-				setHighScore(value);
-				Intent highIntent = new Intent(MainActivity.this,
-						HighScoreActivity.class);
-				MainActivity.this.startActivity(highIntent);
-				MainActivity.this.finish();
-				return;
-			}
-		});
+					public void onClick(DialogInterface dialog, int whichButton) {
+						String value = "" + name.getText();
+						if (value == "")
+							value = "Anonymous";
+						setHighScore(value);
+						Intent highIntent = new Intent(MainActivity.this,
+								HighScoreActivity.class);
+						MainActivity.this.startActivity(highIntent);
+						MainActivity.this.finish();
+						return;
+					}
+				});
 
 		alert.show();
 	}
-	
-
 
 	private void lose() {
 		Toast.makeText(getApplicationContext(),
@@ -299,7 +305,14 @@ public class MainActivity extends Activity implements OnClickListener {
 				MainActivity.this.finish();
 			}
 		};
-
+		GridView keyboard = (GridView) findViewById(R.id.grid);
+		keyboard.setOnItemClickListener(new OnItemClickListener() {
+			   @Override
+			   public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
+			      
+			   } 
+			});
+		
 		Handler h = new Handler();
 
 		// delay time in miliseconds. (before going to highscores, so you can
@@ -387,14 +400,16 @@ public class MainActivity extends Activity implements OnClickListener {
 		super.onPause();
 
 		// Store values between instances here
-		SharedPreferences.Editor editor = gamePrefs.edit();
-
-		editor.putInt("moves", moves);
-		editor.putString("word", randomWord);
-		editor.putString("guessedLetters", "" + guessedLetters);
-
-		// Commit to storage
-		editor.commit();
+		if (gamePrefs != null){
+			SharedPreferences.Editor editor = gamePrefs.edit();
+	
+			editor.putInt("moves", maxMoves);
+			editor.putString("word", randomWord);
+			editor.putString("guessedLetters", "" + guessedLetters);
+	
+			// Commit to storage
+			editor.commit();
+		}
 	}
 
 }

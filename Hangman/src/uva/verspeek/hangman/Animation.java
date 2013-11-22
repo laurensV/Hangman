@@ -85,8 +85,10 @@ SurfaceHolder.Callback {
 	}
 
 	public void render(Canvas canvas) {
-		canvas.drawColor(Color.WHITE);
-		hangman.draw(canvas);
+		if (canvas != null){
+			canvas.drawColor(Color.WHITE);
+			hangman.draw(canvas);
+		}
 	}
 
 	/**
