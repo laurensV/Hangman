@@ -8,6 +8,9 @@ import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Paint;
+import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.SurfaceHolder;
@@ -86,7 +89,12 @@ SurfaceHolder.Callback {
 
 	public void render(Canvas canvas) {
 		if (canvas != null){
-			canvas.drawColor(Color.WHITE);
+		    Paint p = new Paint();
+		    // start at 0,0 and go to 0,max to use a vertical
+		    // gradient the full height of the screen.
+		    p.setShader(new LinearGradient(0, 0, 0, getHeight(), Color.rgb(255,245,131), Color.rgb(255,240,58), Shader.TileMode.MIRROR));
+		    canvas.drawPaint(p);
+			//canvas.drawColor(Color.rgb(255,238,114));
 			hangman.draw(canvas);
 		}
 	}
