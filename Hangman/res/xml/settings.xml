@@ -6,7 +6,7 @@
     android:key="preference_screen">
 
     <PreferenceCategory android:title="Settings">
-        <uva.verspeek.hangman.SeekBarPreference
+        <uva.verspeek.hangman.settings.SeekBarPreference
             android:key="maxMoves"
             android:title="Allowed moves"
             android:summary="Adjust maximum allowed moves"
@@ -16,7 +16,7 @@
             robobunny:unitsLeft=""
             robobunny:unitsRight=""
     />
-    <uva.verspeek.hangman.SeekBarPreference
+    <uva.verspeek.hangman.settings.SeekBarPreference
             android:key="wordLength"
             android:title="Word Length"
             android:summary="Adjust length of the word to guess"

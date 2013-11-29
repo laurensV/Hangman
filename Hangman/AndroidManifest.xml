@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="uva.verspeek.hangman.MainActivity"
+            android:name="uva.verspeek.hangman.gameplay.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -24,12 +24,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="uva.verspeek.hangman.HighScoreActivity"
+            android:name="uva.verspeek.hangman.highscore.HighScoreActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
                 <activity
-            android:name="uva.verspeek.hangman.SettingsActivity"
+            android:name="uva.verspeek.hangman.settings.SettingsActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>

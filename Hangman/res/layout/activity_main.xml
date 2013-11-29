@@ -41,7 +41,7 @@
      android:layout_above="@+id/moves"
      android:layout_below="@+id/word"
      android:layout_centerHorizontal="true"
-     class="uva.verspeek.hangman.Animation" />
+     class="uva.verspeek.hangman.animation.Animation" />
 
    <TextView
        android:id="@+id/moves"
